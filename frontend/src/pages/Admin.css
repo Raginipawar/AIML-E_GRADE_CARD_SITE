@@ -1,0 +1,116 @@
+.admin-shell {
+  display: flex;
+  min-height: calc(100vh - 64px - 140px);
+}
+.admin-menu {
+  width: 220px;
+  background: #fff;
+  border-right: 1px solid var(--border);
+  padding: 18px 0;
+  flex-shrink: 0;
+}
+.admin-menu-title {
+  background: var(--vit-blue);
+  color: #fff;
+  padding: 12px 20px;
+  font-weight: 700;
+  margin: -18px -1px 12px 0;
+}
+.admin-menu-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 0.92rem;
+  color: var(--text);
+  border-left: 3px solid transparent;
+}
+.admin-menu-item:hover {
+  background: var(--bg);
+}
+.admin-menu-item.active {
+  background: #eaf1fb;
+  border-left-color: var(--vit-blue);
+  color: var(--vit-blue);
+  font-weight: 700;
+}
+.admin-main {
+  flex: 1;
+  padding: 24px 28px;
+}
+.admin-main-header {
+  background: linear-gradient(90deg, var(--vit-navy), var(--vit-blue));
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 8px;
+  margin-bottom: 22px;
+  font-weight: 700;
+}
+.admin-form {
+  padding: 22px;
+  max-width: 640px;
+}
+.admin-form .field {
+  margin-bottom: 14px;
+}
+.admin-form .field input,
+.admin-form .field select {
+  width: 100%;
+}
+.admin-form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+.components-grid {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+.search-bar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+.search-bar .field {
+  min-width: 140px;
+}
+.row-actions {
+  display: flex;
+  gap: 6px;
+}
+.row-actions button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+.row-actions .edit-btn {
+  color: var(--vit-blue);
+}
+.row-actions .edit-btn:hover {
+  background: #eaf1fb;
+}
+.row-actions .del-btn {
+  color: var(--danger);
+}
+.row-actions .del-btn:hover {
+  background: var(--danger-bg);
+}
+.edit-row td {
+  background: #fbfcfe;
+}
+.edit-inline {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.edit-inline input {
+  width: 70px;
+}

@@ -1,0 +1,77 @@
+.dock-outer {
+  margin: 0 0.5rem;
+  display: flex;
+  max-width: 100%;
+  align-items: center;
+  pointer-events: none;
+}
+
+.dock-panel {
+  position: fixed;
+  bottom: 1.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-end;
+  width: fit-content;
+  gap: 0.9rem;
+  border-radius: 1.1rem;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid var(--border, #dbe4f0);
+  box-shadow: 0 10px 32px rgba(11, 34, 71, 0.22);
+  padding: 0 0.6rem 0.6rem;
+  pointer-events: auto;
+  z-index: 60;
+}
+
+.dock-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background-color: var(--vit-navy, #0b2247);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.15),
+    0 2px 4px -1px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.15s ease;
+}
+.dock-item:hover,
+.dock-item:focus-visible {
+  background-color: var(--vit-blue, #17539e);
+}
+
+.dock-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dock-label {
+  position: absolute;
+  top: -1.9rem;
+  left: 50%;
+  width: fit-content;
+  white-space: pre;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border, #dbe4f0);
+  background-color: #fff;
+  padding: 3px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--vit-navy, #0b2247);
+  box-shadow: 0 4px 12px rgba(11, 34, 71, 0.14);
+  transform: translateX(-50%);
+}
+
+@media (max-width: 640px) {
+  .dock-panel {
+    display: none;
+  }
+}

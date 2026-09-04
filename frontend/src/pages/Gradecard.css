@@ -1,0 +1,137 @@
+.lookup-form {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  padding: 24px;
+}
+.lookup-form .field {
+  flex: 1 1 150px;
+  min-width: 150px;
+}
+.lookup-form .field select,
+.lookup-form .field input {
+  width: 100%;
+}
+.lookup-form .field.grow {
+  flex: 1.6 1 220px;
+  min-width: 200px;
+}
+.hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.marksheet {
+  margin-top: 28px;
+  padding: 44px 48px;
+  border: 1px solid var(--border);
+  position: relative;
+}
+.marksheet::before {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 1px solid var(--border);
+  pointer-events: none;
+}
+.marksheet-letterhead {
+  text-align: center;
+  margin-bottom: 22px;
+}
+.marksheet-letterhead .trust {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.marksheet-letterhead h2 {
+  margin: 2px 0;
+  font-size: 1.5rem;
+}
+.marksheet-letterhead .affil {
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.marksheet-letterhead .addr {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.marksheet-title {
+  text-align: center;
+  font-size: 1.15rem;
+  margin: 18px 0 22px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--vit-navy);
+}
+
+.info-grid {
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 22px;
+  row-gap: 0;
+}
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 4px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.92rem;
+}
+.info-row .info-label {
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.sem-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 4px;
+  overflow: hidden;
+}
+.summary-grid {
+  grid-template-columns: 1fr 1fr;
+  margin-top: 22px;
+}
+.summary-cell {
+  background: #eef4fb;
+  border-radius: 8px;
+  padding: 18px 20px;
+}
+.summary-cell h4 {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  padding: 3px 0;
+  color: var(--text-muted);
+}
+.summary-row strong {
+  color: var(--vit-navy);
+  font-size: 1.05rem;
+}
+
+.result-status {
+  margin-top: 18px;
+  font-weight: 700;
+}
+.result-status.pass { color: var(--success); }
+.result-status.fail { color: var(--danger); }
+
+.marksheet-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+@media (max-width: 640px) {
+  .marksheet {
+    padding: 28px 20px;
+  }
+  .info-grid, .summary-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,37 @@
+.filters {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.filters .field {
+  flex: 1 1 170px;
+  min-width: 170px;
+}
+.filters .field select,
+.filters .field input {
+  width: 100%;
+}
+.filters .field.grow-2 {
+  flex: 2 1 320px;
+  min-width: 280px;
+}
+.filters .field.grow {
+  flex: 1.4 1 240px;
+  min-width: 220px;
+}
+.filters .field select {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.scheme-note {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 10px 0 0;
+}
+.highlight-row {
+  background: #fff8e1 !important;
+}

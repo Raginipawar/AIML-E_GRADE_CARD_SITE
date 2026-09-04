@@ -1,0 +1,18 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Backend runtime artifacts (also covered by backend/.gitignore, kept here too)
+backend/target/
+backend/data/
+backend/data-verify/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env.verify
+
+# Scripts
+scripts/node_modules/

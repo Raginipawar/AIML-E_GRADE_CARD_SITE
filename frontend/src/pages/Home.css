@@ -1,0 +1,122 @@
+.hero {
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+}
+.hero-bubble-menu .logo-bubble {
+  display: none;
+}
+.hero-bubble-menu .toggle-bubble {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(180deg, rgba(9, 32, 66, 0.82), rgba(9, 32, 66, 0.92)), url('/images/home-hero.webp');
+  background-size: cover;
+  background-position: center;
+}
+.hero-content {
+  position: relative;
+  padding: 76px 20px 90px;
+  text-align: center;
+}
+.hero-content h1 {
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 10px;
+}
+.hero-content p {
+  color: #dce7f7;
+  font-size: 1.1rem;
+  max-width: 620px;
+  margin: 0 auto 28px;
+}
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.hero-glass-btn {
+  color: #fff;
+}
+.hero-glass-btn:hover {
+  color: #fff;
+}
+
+.stats-strip {
+  margin-top: -46px;
+  position: relative;
+  z-index: 2;
+}
+.stats-grid {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  padding: 22px;
+  border-radius: var(--radius);
+}
+.stat {
+  text-align: center;
+  padding: 10px;
+}
+.stat .num {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--vit-blue);
+  display: block;
+}
+.stat .label {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.feature-grid {
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+}
+.feature-grid > div {
+  height: 100%;
+}
+.feature-card {
+  height: 100%;
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  text-decoration: none;
+}
+.feature-card h3 {
+  margin-bottom: 0;
+  font-size: 1.1rem;
+}
+@media (max-width: 780px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.feature-card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.gallery {
+  grid-template-columns: repeat(3, 1fr);
+}
+.gallery img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+@media (max-width: 720px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}

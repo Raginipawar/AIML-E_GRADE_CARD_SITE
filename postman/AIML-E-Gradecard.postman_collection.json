@@ -1,0 +1,175 @@
+{
+  "info": {
+    "name": "AIML-E Grade Card Portal",
+    "description": "REST API for the AIML-E Grade Card Portal backend (Spring Boot + JPA). Import this alongside the backend running on http://localhost:8080 (default H2 profile) — matches Experiment 5's 'Postman for client testing' requirement.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" },
+    { "key": "markId", "value": "1" }
+  ],
+  "item": [
+    {
+      "name": "Students",
+      "item": [
+        {
+          "name": "List all students",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/students" }
+        },
+        {
+          "name": "Get student by PRN (Ragini Pawar)",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/students/12411012" }
+        }
+      ]
+    },
+    {
+      "name": "Subjects (Syllabus tab)",
+      "item": [
+        {
+          "name": "List all subjects",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/subjects" }
+        },
+        {
+          "name": "List subjects for SY semester 2",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/subjects?year=SY&semester=2",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "subjects"],
+              "query": [{ "key": "year", "value": "SY" }, { "key": "semester", "value": "2" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Subject-wise Marks tab",
+      "item": [
+        {
+          "name": "Marks for Automata Theory (ML2310, SY-2) — real data",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/marks?year=SY&semester=2&subjectCode=ML2310",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "marks"],
+              "query": [
+                { "key": "year", "value": "SY" },
+                { "key": "semester", "value": "2" },
+                { "key": "subjectCode", "value": "ML2310" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Gradecard & CGPA tab",
+      "item": [
+        {
+          "name": "Get gradecard (Ragini Pawar, up to SY)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/gradecard?prn=12411012&name=Ragini Pawar&year=SY",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "gradecard"],
+              "query": [
+                { "key": "prn", "value": "12411012" },
+                { "key": "name", "value": "Ragini Pawar" },
+                { "key": "year", "value": "SY" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Download gradecard PDF",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/gradecard/pdf?prn=12411012&name=Ragini Pawar&year=SY",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "gradecard", "pdf"],
+              "query": [
+                { "key": "prn", "value": "12411012" },
+                { "key": "name", "value": "Ragini Pawar" },
+                { "key": "year", "value": "SY" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Wrong name -> 400",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/gradecard?prn=12411012&name=Totally Wrong&year=SY",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "gradecard"],
+              "query": [
+                { "key": "prn", "value": "12411012" },
+                { "key": "name", "value": "Totally Wrong" },
+                { "key": "year", "value": "SY" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin Marksheet CRUD",
+      "item": [
+        {
+          "name": "Search / Show marks (filters optional)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/marks?year=SY&semester=2&subjectCode=ML2310",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "admin", "marks"],
+              "query": [
+                { "key": "prn", "value": "", "disabled": true },
+                { "key": "year", "value": "SY" },
+                { "key": "semester", "value": "2" },
+                { "key": "subjectCode", "value": "ML2310" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Show one mark record by id",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/admin/marks/{{markId}}" }
+        },
+        {
+          "name": "Add marks",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/api/admin/marks",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prn\": \"12410292\",\n  \"subjectCode\": \"ML2305\",\n  \"year\": \"SY\",\n  \"semester\": 1,\n  \"components\": { \"ese\": 82 }\n}"
+            }
+          }
+        },
+        {
+          "name": "Update marks",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/api/admin/marks/{{markId}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prn\": \"12410292\",\n  \"subjectCode\": \"ML2305\",\n  \"year\": \"SY\",\n  \"semester\": 1,\n  \"components\": { \"ese\": 90 }\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete marks",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/admin/marks/{{markId}}" }
+        }
+      ]
+    }
+  ]
+}

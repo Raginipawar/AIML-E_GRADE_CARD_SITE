@@ -1,0 +1,246 @@
+:root {
+  --vit-navy: #0b2247;
+  --vit-blue: #17539e;
+  --vit-blue-light: #2a72c9;
+  --vit-gold: #e8a627;
+  --bg: #f4f7fb;
+  --card-bg: #ffffff;
+  --text: #16233d;
+  --text-muted: #5b6b84;
+  --border: #dbe4f0;
+  --success: #1f9d55;
+  --success-bg: #e8f7ee;
+  --danger: #c0392b;
+  --danger-bg: #fbeae8;
+  --radius: 14px;
+  --shadow: 0 2px 10px rgba(13, 47, 94, 0.08);
+  --shadow-lg: 0 10px 32px rgba(13, 47, 94, 0.16);
+  --font-serif: 'Times New Roman', Times, 'Liberation Serif', Georgia, serif;
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-shadow: 0 8px 32px rgba(11, 34, 71, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--vit-blue);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4 {
+  color: var(--vit-navy);
+  margin: 0 0 0.5em;
+  font-family: var(--font-serif);
+  font-weight: 700;
+}
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* Glassmorphism: frosted, translucent panels for the home page bars */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  border-radius: 999px;
+  padding: 11px 22px;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.12s ease, box-shadow 0.15s ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn-primary {
+  background: var(--vit-blue);
+  color: #fff;
+}
+.btn-primary:hover {
+  filter: brightness(1.08);
+  text-decoration: none;
+}
+.btn-gold {
+  background: var(--vit-gold);
+  color: #402d00;
+}
+.btn-gold:hover {
+  filter: brightness(1.05);
+  text-decoration: none;
+}
+.btn-outline {
+  background: transparent;
+  color: var(--vit-blue);
+  border: 1.5px solid var(--vit-blue);
+}
+.btn-outline:hover {
+  background: var(--vit-blue);
+  color: #fff;
+  text-decoration: none;
+}
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+input, select {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  padding: 9px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--vit-blue-light);
+  box-shadow: 0 0 0 3px rgba(42, 114, 201, 0.15);
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+th, td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+th {
+  background: var(--vit-navy);
+  color: #fff;
+  font-weight: 700;
+  position: sticky;
+  top: 0;
+}
+tbody tr {
+  transition: background 0.15s ease;
+}
+tbody tr:hover {
+  background: #f0f5fc;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.badge-A, .badge-B, .badge-C, .badge-D, .badge-F, .badge-P {
+  background: #eef1f6;
+  color: var(--vit-navy);
+  border: 1px solid var(--border);
+}
+
+.error-banner {
+  background: var(--danger-bg);
+  color: var(--danger);
+  border: 1px solid #f0c7c0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 0.92rem;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.section {
+  padding: 40px 0;
+}
+
+/* Clears the fixed floating Dock so it never sits over the last bit of
+   page content (forms, tables) at the bottom of shorter pages. */
+main {
+  padding-bottom: 92px;
+}
+
+.page-header {
+  background: var(--vit-navy);
+  color: #fff;
+  padding: 36px 0;
+}
+.page-header p {
+  color: #cfe0f5;
+  max-width: 680px;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.table-scroll table {
+  min-width: 640px;
+}

@@ -1,0 +1,69 @@
+.syllabus-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+.syllabus-nav {
+  flex: 0 0 190px;
+  position: sticky;
+  top: 88px;
+  padding-top: 8px;
+}
+.syllabus-blocks {
+  flex: 1;
+  min-width: 0;
+}
+@media (max-width: 860px) {
+  .syllabus-layout {
+    flex-direction: column;
+  }
+  .syllabus-nav {
+    position: static;
+    flex: none;
+    display: none;
+  }
+}
+
+.year-block {
+  margin-bottom: 18px;
+  scroll-margin-top: 84px;
+}
+.year-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  cursor: pointer;
+  user-select: none;
+}
+.year-head h3 {
+  margin: 0;
+}
+.year-head .chev {
+  display: inline-block;
+  color: var(--vit-blue);
+  font-weight: 700;
+}
+.sem-block {
+  margin-top: 14px;
+}
+.sem-block h4 {
+  font-size: 0.95rem;
+  color: var(--vit-blue);
+  margin-bottom: 8px;
+}
+.no-results-note {
+  font-size: 0.85rem;
+  background: #fff4e0;
+  color: #8a5a00;
+  border-radius: 6px;
+  padding: 6px 10px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.syllabus-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}

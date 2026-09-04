@@ -1,0 +1,24 @@
+# Real MySQL for the official assignment demo (Postman + MySQL Workbench
+# screenshots). Everyday use doesn't need this at all — the backend's default
+# `local` profile runs on a zero-install file-based H2 database instead.
+#
+# Usage:
+#   docker compose up -d
+#   cd backend && ./mvnw spring-boot:run -Dspring-boot.run.profiles=mysql
+#
+# Matches backend/src/main/resources/application-mysql.properties exactly.
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: aiml-gradecard-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: aiml_gradecard
+      MYSQL_ROOT_PASSWORD: gradecard
+    ports:
+      - "3306:3306"
+    volumes:
+      - aiml-gradecard-mysql-data:/var/lib/mysql
+
+volumes:
+  aiml-gradecard-mysql-data:
